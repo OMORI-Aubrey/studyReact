@@ -18,16 +18,43 @@ function AboutPage() {
   )
 }
 
+const user = {
+  name: 'JaeYun',
+  imageUrl: 'https://via.placeholder.com/150',
+  imageSize: 90,
+};
+
+function Profile() {
+  return (
+    <>
+      <h1>{user.name}</h1> { /*값 넣기는 이렇게*/}
+
+      {/*HTML에 class가 여기서는 className*/}
+      <img className="avatar"
+        src="{user.imageUrl}"
+        alt={user.name + '의 사진'}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize
+        }} />
+    </>
+  );
+}
+
 
 function App() {
   return (
     <div>
       <h1>리액트에 온걸 환영한다</h1>
+
       <MyButton /> {/*컴포넌트는 항상 대문자로 시작*/}
       <hr />
+
       <AboutPage />
       <hr />
-      <img className='avatar' /> {/*HTML에 class가 여기서는 className*/}
+
+      <Profile />
+      <hr />
     </div>
   );
 }
