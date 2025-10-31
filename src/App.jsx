@@ -42,7 +42,41 @@ function Profile() {
 }
 
 
+function AdminPanel() {
+  return <h2>관리자 페이지입니다.</h2>
+}
+
+function LoginForm() {
+  return <h2>로그인이 필요합니다.</h2>
+}
+
+
 function App() {
+
+  /* 조건부 렌더링 */
+  const isLoggedIn = false; // false로 바꿔보기
+
+
+  // if문 사용
+  let content;
+
+  if (isLoggedIn) {
+    content = <AdminPanel />
+  }
+  else {
+    content = <LoginForm />
+  }
+
+
+  // 삼항 연산자
+  const contentWithTernary = isLoggedIn ? <AdminPanel /> : <LoginForm />
+
+
+  // && 연산자 (참일 때만 렌더링)
+  const contentWithAnd = (
+    <div>{isLoggedIn && <p>관리자만 볼 수 있는 문장입니다</p>}</div>
+  )
+
   return (
     <div>
       <h1>리액트에 온걸 환영한다</h1>
@@ -55,6 +89,21 @@ function App() {
 
       <Profile />
       <hr />
+
+      <div style={{ marginTop: "50px" }}>
+        <h1>조건부 렌더링</h1>
+
+        <h3>if 문으로 렌더링</h3>
+        {content}
+
+        <h3>삼항 연산자로 렌더링</h3>
+        {contentWithTernary}
+
+        <h3>&& 연산자로 렌더링</h3>
+        {contentWithAnd}
+
+      </div>
+
     </div>
   );
 }
