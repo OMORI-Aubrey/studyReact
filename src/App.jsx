@@ -8,6 +8,7 @@ function MyButton() {
   )
 }
 
+
 function AboutPage() {
   return (
     <> {/*이렇게*/}
@@ -18,6 +19,7 @@ function AboutPage() {
   )
 }
 
+
 const user = {
   name: 'JaeYun',
   imageUrl: 'https://via.placeholder.com/150',
@@ -25,6 +27,7 @@ const user = {
 };
 
 function Profile() {
+
   return (
     <>
       <h1>{user.name}</h1> { /*값 넣기는 이렇게*/}
@@ -48,6 +51,29 @@ function AdminPanel() {
 
 function LoginForm() {
   return <h2>로그인이 필요합니다.</h2>
+}
+
+const products = [
+  { title: 'Cabbage', isFruit: false, id: 1 },
+  { title: 'Garlic', isFruit: false, id: 2 },
+  { title: 'Apple', isFruit: true, id: 3 },
+];
+
+function ShoppingList() {
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+      style={{
+        color: product.isFruit ? 'magenta' : 'darkgreen'
+      }}
+    >
+      {product.title}
+    </li>
+  );
+
+  return (
+    <ul>{listItems}</ul>
+  );
 }
 
 
@@ -102,8 +128,10 @@ function App() {
         <h3>&& 연산자로 렌더링</h3>
         {contentWithAnd}
 
-      </div>
+        <h3>리스트로 렌더링</h3>
+        <ShoppingList />
 
+      </div>
     </div>
   );
 }
