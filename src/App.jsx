@@ -106,6 +106,21 @@ function MyButton3() {
 }
 
 
+function MyCounter() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      {count}번 클릭
+    </button>
+  );
+}
+
+
 function App() {
 
   /* 조건부 렌더링 */
@@ -159,12 +174,16 @@ function App() {
 
         <h3>리스트로 렌더링</h3>
         <ShoppingList />
+      </div>
 
       <MyButton2 />
-        
+
       <MyButton3 />
 
-      </div>
+      <h3>별도로 업데이트 되는 카운터</h3>
+      <MyCounter />
+      <MyCounter />
+
     </div>
   );
 }
