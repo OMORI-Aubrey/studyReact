@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css'
 
 function MyButton() {
@@ -86,7 +87,22 @@ function MyButton2() {
     <button onClick={handleClick}>
       클릭
     </button>
-  )
+  );
+}
+
+
+function MyButton3() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      {count}번 클릭
+    </button>
+  );
 }
 
 
@@ -145,6 +161,8 @@ function App() {
         <ShoppingList />
 
       <MyButton2 />
+        
+      <MyButton3 />
 
       </div>
     </div>
