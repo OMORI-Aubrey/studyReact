@@ -77,6 +77,19 @@ function ShoppingList() {
 }
 
 
+function MyButton2() {
+  function handleClick() {
+    alert("클릭했구나!");
+  }
+
+  return (
+    <button onClick={handleClick}>
+      클릭
+    </button>
+  )
+}
+
+
 function App() {
 
   /* 조건부 렌더링 */
@@ -130,6 +143,8 @@ function App() {
 
         <h3>리스트로 렌더링</h3>
         <ShoppingList />
+
+      <MyButton2 />
 
       </div>
     </div>
