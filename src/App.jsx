@@ -121,6 +121,15 @@ function MyCounter() {
 }
 
 
+function MyCounter2({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      {count}번 클릭
+    </button>
+  );
+}
+
+
 function App() {
 
   /* 조건부 렌더링 */
@@ -146,6 +155,12 @@ function App() {
   const contentWithAnd = (
     <div>{isLoggedIn && <p>관리자만 볼 수 있는 문장입니다</p>}</div>
   )
+
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
 
   return (
     <div>
@@ -184,6 +199,9 @@ function App() {
       <MyCounter />
       <MyCounter />
 
+      <h3>값을 공유하는 카운터</h3>
+      <MyCounter2 count={count} onClick={handleClick} />
+      <MyCounter2 count={count} onClick={handleClick} />
     </div>
   );
 }
